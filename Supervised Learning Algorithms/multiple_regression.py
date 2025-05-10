@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import sklearn
 import seaborn as sns
 from sklearn.datasets import fetch_california_housing
 import statsmodels.api as sm
@@ -35,3 +34,18 @@ plt.figure(figsize=(10,10))
 sns.heatmap(corr, annot=True, cmap='YlGnBu')
 plt.show()
 
+from sklearn.metrics import mean_squared_error
+
+rmse = np.sqrt(mean_squared_error(y, lr.fittedvalues))
+print(f"RMSE: {rmse:.3f}")
+print(f"R-squared: {lr.rsquared:.3f}")
+
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X_const, y, test_size=0.2, random_state=0)
+
+model_split = sm.OLS(y_train, X_train).fit()
+y_pred = model_split.predict(X_test)
+
+test_rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+print(f"Test RMSE: {test_rmse:.3f}")
