@@ -1,8 +1,8 @@
 import numpy as np 
-import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
+import seaborn as sns
 
 def sigmoid(x):
     return 1/(1+np.exp(-x))
@@ -50,3 +50,10 @@ def accuracy(y_pred, y_test):
 acc = accuracy(pred, y_test)
 print(acc)
 
+# Plotting the sigmoid function
+x = np.linspace(-10, 10, 1000)
+plt.figure(figsize=(12,8))
+plt.plot(x, 1/(1+np.exp(-x)))
+plt.title("Sigmoid function")
+plt.grid()
+plt.show()
