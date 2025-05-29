@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 from sklearn.datasets import fetch_openml
 import matplotlib.pyplot as plt
-import seaborn as sns
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import SGDClassifier
 
@@ -16,9 +15,6 @@ def vizualise(n):
     plt.imshow(X.iloc[n].values.reshape(28,28), cmap='gray')
     plt.show()
     return
-
-# print(y[1000]) #printing the target of the 1000th row
-# vizualise(1000) #visualising the 1000th row
 
 print(y == 4)
 print(np.where(y == 4)) #printing the index of the rows where the target is 4
