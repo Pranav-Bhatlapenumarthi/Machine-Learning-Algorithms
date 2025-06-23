@@ -9,7 +9,7 @@ tree_reg = tree.DecisionTreeRegressor(random_state=42)
 tree_reg = tree_reg.fit(X,y)
 print(tree_reg.predict([[10.356346, 12.235235]]))
 
-#Creating random dataset 
+# Creating random dataset 
 '''
 First, range = np.random.RandomState(1) creates a random number generator with a fixed seed (1), ensuring reproducibility of the
 random numbers generated. Next, X = np.sort(5*range.rand(80,1), axis=0) generates 80 random numbers between 0 and 1, scales them to 
@@ -27,7 +27,7 @@ X = np.sort(5*range.rand(80,1), axis=0)
 y = np.sin(X).ravel()
 y[::5] += 3*(0.5-range.rand(16))
 
-#Fit regression model
+# Fit regression model
 regr_1 = tree.DecisionTreeRegressor(max_depth=2)
 regr_2 = tree.DecisionTreeRegressor(max_depth=15, min_samples_leaf=10) # Demonstrates overfitting; min_samples_leaf introduces regularisation
 regr_1.fit(X,y)
